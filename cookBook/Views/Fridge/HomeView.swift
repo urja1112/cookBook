@@ -10,7 +10,8 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var viewModel = IngredientViewModel()
-    @State private var showingAddsheet = false
+    @ObservedObject var authmodel: AuthViewModel
+    @State private var selectedIngredient: Ingredient?
 
     var body: some View {
         NavigationStack {
@@ -23,16 +24,22 @@ struct HomeView: View {
                 else {
                     List {
                         ForEach(viewModel.ingredient) { ingredient in
-                            VStack(alignment: .leading) {
-                                Text(ingredient.name).font(.headline)
-                                Text("Qty: \(ingredient.quantity)")
-                                Text("Expires: \(ingredient.expiryDate, style: .date)")
-                                    .foregroundColor(ingredient.expiryDate < Date() ? .red : .secondary)
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(ingredient.name).font(.headline)
+                                    Text("Qty: \(ingredient.quantity)")
+                                    Text("Expires: \(ingredient.expiryDate, style: .date)")
+                                        .foregroundColor(ingredient.expiryDate < Date() ? .red : .secondary)
+                                }
+                                Spacer() // 🔑 Forces HStack to fill full width
+                            }
+                            .contentShape(Rectangle()) // 🔑 Makes full row tappable
+                            .onTapGesture {
+                                selectedIngredient = ingredient
                             }
                         }
                         .onDelete { indexset in
                             indexset.map { viewModel.ingredient[$0] }.forEach(viewModel.deleteIngredient)
-                           // viewModel.shouldRefresh = true
                         }
                     }
                     
@@ -40,18 +47,24 @@ struct HomeView: View {
             }
             .navigationTitle("My Fridge")
             .navigationBarTitleDisplayMode(.large)
+           
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                             Button(action: {
-                                 showingAddsheet = true
-                             }) {
-                                 Image(systemName: "plus")
-                             }
-                         }
+                    Button(action: {
+                        selectedIngredient = Ingredient(id: nil, userId: nil, name: "", quantity: "", expiryDate: Date())
+                    }) {
+                        Image(systemName: "plus")
                     }
+                }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Logout") {
+                            authmodel.logout()
+                        }
+                    }
+            }
           
-            .sheet(isPresented: $showingAddsheet) {
-                AddIngredientView(viewModel: viewModel)
+            .sheet(item: $selectedIngredient) { ingredient in
+                AddIngredientView(viewModel: viewModel, existingIngredient: ingredient)
             }
             .onAppear {
                           viewModel.fetchIngredients()
@@ -70,5 +83,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView( authmodel: AuthViewModel())
 }

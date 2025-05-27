@@ -18,11 +18,18 @@ struct cookBookApp: App {
     var body: some Scene {
         WindowGroup {
             if authViewModel.isLoggedIn || AuthService.shared.isUserLoggedIn() {
-                HomeView()
+                MainTabView()
                     .environmentObject(authViewModel)
+                    .environmentObject(IngredientViewModel())
+                    .transition(.move(edge: .trailing))
+
             } else {
                 LoginView(viewModel: authViewModel)
+                    .transition(.move(edge: .leading))
+
             }
+
         }
+
     }
 }

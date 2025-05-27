@@ -34,10 +34,14 @@ struct RegisterView: View {
 
                 if let error = viewModel.errorMessage {
                     Text(error).foregroundColor(.red)
-                    }
-                
+                }
+                if viewModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                }
                 Button("Register") {
-                    viewModel.login(email: email, password: password)
+                    viewModel.register(email: email, password: password)
                     }
                     .frame(maxWidth: .infinity)
                     .padding()

@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Ingredient : Identifiable,Codable {
+struct Ingredient : Identifiable,Codable,Equatable {
     @DocumentID var id : String?
     var userId: String?
     var name : String

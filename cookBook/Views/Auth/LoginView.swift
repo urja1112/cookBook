@@ -33,6 +33,11 @@ struct LoginView: View {
                 if let error = viewModel.errorMessage {
                     Text(error).foregroundColor(.red)
                     }
+                if viewModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                }
                 
                 Button("Login") {
                     viewModel.login(email: email, password: password)
