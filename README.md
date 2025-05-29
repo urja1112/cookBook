@@ -34,11 +34,11 @@
 
 | Home | Recipe List | Recipe Detail |
 |------|-------------|----------------|
-| ![Home](Screenshots/homescreen.png) | ![List](Screenshots/recipelist.png) | ![Detail](Screenshots/detailrecipe.png) |
+| ![Home](Screenshot/homescreen.png) | ![List](Screenshot/recipelist.png) | ![Detail](Screenshot/detailrecipe.png) |
 
 | Shopping List | Profile | Login | Signup |
 |---------------|---------|-------|--------|
-| ![Shopping](Screenshots/shoppinglist.png) | ![Profile](Screenshots/profile.png) | ![Login](Screenshots/login.png) | ![Signup](Screenshots/signup.png) |
+| ![Shopping](Screenshot/shoppinglist.png) | ![Profile](Screenshot/profile.png) | ![Login](Screenshot/login.png) | ![Signup](Screenshot/signup.png) |
 
 
 
