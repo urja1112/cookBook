@@ -30,6 +30,7 @@ struct RecipeView: View {
                      }
                  }
              }
+             
 
              Text("Used: \(recipe.usedIngredientCount ?? 0), Missing: \(recipe.missedIngredientCount ?? 0)")
                  .font(.caption)

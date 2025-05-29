@@ -19,17 +19,6 @@ class IngredientViewModel : ObservableObject {
     private var db = Firestore.firestore()
     private var collection = "ingredients"
 
-//    
-//    func fetchIngredients() {
-//        db.collection(collection)
-//            .whereField("userId", isEqualTo: Auth.auth().currentUser?.uid)
-//            .order(by: "expiryDate").addSnapshotListener { snapshot, error in
-//            guard let documents = snapshot?.documents else {return}
-//            self.ingredient = documents.compactMap{ doc in
-//                try? doc.data(as: Ingredient.self)
-//            }
-//        }
-//    }
     func fetchIngredients(completion: (() -> Void)? = nil) {
         db.collection(collection)
             .whereField("userId", isEqualTo: Auth.auth().currentUser?.uid)

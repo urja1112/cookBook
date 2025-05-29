@@ -11,6 +11,8 @@ import Firebase
 @main
 struct cookBookApp: App {
     @StateObject private var authViewModel = AuthViewModel()
+    @StateObject var shoppingVM = ShoppingListViewModel()
+
 
     init() {
         FirebaseApp.configure()
@@ -20,6 +22,7 @@ struct cookBookApp: App {
             if authViewModel.isLoggedIn || AuthService.shared.isUserLoggedIn() {
                 MainTabView()
                     .environmentObject(authViewModel)
+                    .environmentObject(shoppingVM)
                     .environmentObject(IngredientViewModel())
                     .transition(.move(edge: .trailing))
 

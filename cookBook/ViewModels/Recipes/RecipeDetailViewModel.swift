@@ -11,6 +11,9 @@ class RecipeDetailViewModel : ObservableObject {
     @Published var recipeDetail: RecipeDetail?
     @Published var isLoading = false
     @Published var errorMessage: String?
+    @Published var showToast = false
+
+    
     
     func loadRecipeDetail(id : Int) async {
         isLoading = true

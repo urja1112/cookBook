@@ -13,7 +13,9 @@ class AuthViewModel : ObservableObject {
     @Published var errorMessage: String?
     @Published var isLoading = false
 
-    
+    var currentUser: User? {
+        return Auth.auth().currentUser
+    }
     
     init() {
         // Automatically restore session on app launch
