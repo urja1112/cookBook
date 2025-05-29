@@ -62,8 +62,3 @@ To use this app:
 3. Run on iOS Simulator (iOS 16 or above recommended)  
 4. Make sure Firebase setup is configured in your project  
 
----
-
-## 🙋🏻‍♂️ About the Developer
-
-Built by [Urja 💙] — a passionate iOS and UX designer building elegant apps with real-world functionality.
