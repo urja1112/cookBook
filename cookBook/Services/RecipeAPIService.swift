@@ -10,12 +10,14 @@ import Foundation
 
 class RecipeAPIService {
     static let shared = RecipeAPIService()
+    let key = SecretsManager.shared.apiKey
+
     
-    private let apiKey = "7ad41a94de044cef800de69bb47a8388"
+   // private let apiKey = "7ad41a94de044cef800de69bb47a8388"
     
     func fetchRecipes(ingredients: [String]) async throws -> [Recipe] {
         let query = ingredients.joined(separator: ",")
-        guard let url = URL(string: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=\(query)&number=10&apiKey=\(apiKey)") else {
+        guard let url = URL(string: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=\(query)&number=10&apiKey=\(key)") else {
                   throw URLError(.badURL)
         }
         let (data,_) = try await URLSession.shared.data(from: url)

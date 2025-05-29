@@ -56,11 +56,6 @@ struct HomeView: View {
                         Image(systemName: "plus")
                     }
                 }
-                    ToolbarItem(placement: .bottomBar) {
-                        Button("Logout") {
-                            authmodel.logout()
-                        }
-                    }
             }
           
             .sheet(item: $selectedIngredient) { ingredient in

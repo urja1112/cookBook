@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120699BE2DE8F73700CD1733 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 120699BD2DE8F73700CD1733 /* Secrets.plist */; };
 		12F7CAC82DD9954800E0DC27 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 12F7CAC72DD9954800E0DC27 /* FirebaseAuth */; };
 		12F7CACA2DD9954800E0DC27 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 12F7CAC92DD9954800E0DC27 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120699BD2DE8F73700CD1733 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		12F7CA822DD9947400E0DC27 /* cookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 		12F7CA792DD9947400E0DC27 = {
 			isa = PBXGroup;
 			children = (
+				120699BD2DE8F73700CD1733 /* Secrets.plist */,
 				12F7CA842DD9947400E0DC27 /* cookBook */,
 				12F7CA832DD9947400E0DC27 /* Products */,
 			);
@@ -121,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120699BE2DE8F73700CD1733 /* Secrets.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

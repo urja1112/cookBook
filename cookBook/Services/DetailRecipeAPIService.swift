@@ -8,11 +8,13 @@
 
 import Foundation
 class DetailRecipeAPIService {
+    let key = SecretsManager.shared.apiKey
+
     static let shared = DetailRecipeAPIService()
     private let baseURL = "https://api.spoonacular.com"
-    private let apiKey = "7ad41a94de044cef800de69bb47a8388"
+    //private let apiKey = "7ad41a94de044cef800de69bb47a8388"
     func fetchRecipeDetail(id : Int) async throws -> RecipeDetail {
-        let urlString = "\(baseURL)/recipes/\(id)/information?includeNutrition=false&apiKey=\(apiKey)"
+        let urlString = "\(baseURL)/recipes/\(id)/information?includeNutrition=false&apiKey=\(key)"
         
         guard let url = URL(string: urlString) else {
             throw URLError(.badURL)
