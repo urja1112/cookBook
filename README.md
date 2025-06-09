@@ -57,8 +57,28 @@ To use this app:
 
 ## 🛠 How to Run
 
-1. Clone the repo  
-2. Open `cookBook.xcodeproj` in Xcode  
-3. Run on iOS Simulator (iOS 16 or above recommended)  
-4. Make sure Firebase setup is configured in your project  
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/urja1112/cookBook.git
+Open the project in Xcode
+
+Open cookBook.xcodeproj in Xcode 15 or later
+
+Target the correct iOS version
+
+Make sure the deployment target is iOS 16+
+
+Configure Firebase
+
+Add your GoogleService-Info.plist file to the project (this file is excluded from the repo for security reasons)
+
+Set up Firebase Auth and Firestore in your Firebase console
+
+Build and Run
+
+Select a simulator or connected iPhone device
+
+Press Cmd + R or click the Run button in Xcode
+
+⚠️ Note: API keys and Firebase configurations are excluded from the repository. You must set them up locally to run the app successfully.
 
